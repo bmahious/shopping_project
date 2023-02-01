@@ -1,18 +1,15 @@
 import React from 'react';
-import { signInWithGooglePopup, createUserDocumetFromAuth } from '../../Utils/Firebase/Firebase'
+import SignUpForm from '../../components/SignUpForm/SignUpForm'
+import SignInForm from '../../components/SignInForm/SignInForm'
+import './SignIn.styles.scss'
 
 const SighIn = () => {
 
-    const logeUserGoogle = async () => {
-      const resp = await signInWithGooglePopup();
-      //console.log(resp.user)
-      createUserDocumetFromAuth(resp.user)
-    }
 
   return (
-    <div>
-        Sigh In page
-        <button onClick={logeUserGoogle}> Sigh google </button>
+    <div className='authenticaion-container'>
+        <SignInForm />
+        <SignUpForm />  
     </div>
   )
 }
