@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { signInUserAuthWithEmailAndPassword, 
          createUserDocumetFromAuth,
          signInWithGooglePopup
        } from '../../Utils/Firebase/Firebase';
 import './sign-in-form.styles.scss';
 import FormInput from '../../FormInput/FormInput';
-import ButtonComponent from '../ButtonComponent/ButtonComponent'
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
 
 
 const SignInForm = () => {
@@ -18,14 +18,19 @@ const SignInForm = () => {
     const [formField, setFormField] = useState(formFieldState);
     const {email, password} = formField;
 
+
+    // const restFormField = () => {
+    //     setFormField(formFieldState)
+    // }
+
     const handleChange = (e) => {
         //const {name, value } = e.target
         setFormField({...formField, [e.target.name] : e.target.value})
     }
 
     const signInWithGoogle = async () => {
-        const response = await signInWithGooglePopup();
-        await createUserDocumetFromAuth(response.user)
+          await signInWithGooglePopup();
+       // await createUserDocumetFromAuth(response.user)
     }
 
     const handleSubmit = async (e) => {
@@ -33,7 +38,6 @@ const SignInForm = () => {
 
         try {
             const response = await signInUserAuthWithEmailAndPassword(email, password)
-            console.log(response)
             setFormField(formFieldState);
         } catch (error) {
             switch (error.code) {
@@ -51,7 +55,7 @@ const SignInForm = () => {
   return (
     <div className='sign-up-container'>
         <h2>J'ai déja un compte </h2>
-       <span> SignUpForm</span>
+       {/* <span> Se connecter avec un émail </span> */}
        <form onSubmit={handleSubmit} >
         
         <FormInput 
@@ -68,12 +72,12 @@ const SignInForm = () => {
                 value={password} 
         />
        <div className='buttons-container'>
-            <ButtonComponent 
+            <ButtonComponent
                     onSubmit={handleSubmit}> Se connecter 
-                </ButtonComponent>
-                <ButtonComponent 
+            </ButtonComponent>
+            <ButtonComponent
                     type='button' buttonType='google'  onClick={signInWithGoogle}>  Google 
-                </ButtonComponent>
+            </ButtonComponent>
        </div>
         
        </form>

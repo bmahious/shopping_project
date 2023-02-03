@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState } from 'react';
 import { createUserAuthWithEmailAndPassword, 
          createUserDocumetFromAuth
        } from '../../Utils/Firebase/Firebase';
 import './sign-up-form.styles.scss';
 import FormInput from '../../FormInput/FormInput';
-import ButtonComponent from '../ButtonComponent/ButtonComponent'
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
 
 
 const SignUpForm = () => {
@@ -26,7 +26,7 @@ const SignUpForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
       
-        if (password != confirmPassword) {
+        if (password !== confirmPassword) {
             alert('oups passwords do not match');
             return;
         }
@@ -36,7 +36,7 @@ const SignUpForm = () => {
             await createUserDocumetFromAuth(response.user, {displayName})
             setFormField(formFieldState);
         } catch (error) {
-            if (error.code == 'auth/',error.message) {
+            if (error.code === 'auth/',error.message) {
                 alert('oups un compte à déja utilisé cette adresse mail')
             } else {
                 console.log('erreur : ', error)
@@ -46,8 +46,8 @@ const SignUpForm = () => {
 
   return (
     <div className='sign-up-container'>
-        <h2>Vous n'avez pas encore un compte ?</h2>
-       <span> SignUpForm</span>
+        <h2>Vous n'avez pas encore de compte ?</h2>
+       {/* <span> SignUpForm</span> */}
        <form onSubmit={handleSubmit} >
         <FormInput 
                label='Nom'
