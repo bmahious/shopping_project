@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { signInUserAuthWithEmailAndPassword, 
-         createUserDocumetFromAuth,
+import { signInUserAuthWithEmailAndPassword,
          signInWithGooglePopup
        } from '../../Utils/Firebase/Firebase';
 import './sign-in-form.styles.scss';
