@@ -6,12 +6,8 @@ import { CardContext } from '../../Contexts/CardContext';
 
 const CardIcon = () => {
 
- 
   const {isOpenCard, setIsOpenCard, cardCount} = useContext(CardContext);
-
-
-
-  //console.log(cardItems)
+  
   const isToggle = () => setIsOpenCard(!isOpenCard)
   return (
     <div className='cart-icon-container' onClick={isToggle}>

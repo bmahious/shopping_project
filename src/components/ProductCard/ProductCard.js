@@ -9,7 +9,6 @@ import React from 'react'
 
     const clickAddCard = () => addItemToCard(product.product)
 
-
    const {addItemToCard} = useContext(CardContext)
   return (
     <div className='product-card-container'>
