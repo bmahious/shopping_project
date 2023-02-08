@@ -81,8 +81,7 @@
     const clearItemFromCard = (itemToClear) =>{
       setCardItems(clearCardItem(cardItems, itemToClear))
     }
-
-
+    
     const value = {
       isOpenCard, 
       setIsOpenCard, 

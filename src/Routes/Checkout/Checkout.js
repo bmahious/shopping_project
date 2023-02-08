@@ -25,7 +25,7 @@ import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
                 )
             })
         }
-        <span className='total'> Total :  {total}€ </span>
+        <span className='total'> Total :  {total},00 € </span>
      </div>
    )
  }
