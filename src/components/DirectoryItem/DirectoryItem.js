@@ -1,5 +1,7 @@
+import CategoryItem from '../category-item/CategoryItem';
+
 import './DirectoryItem.styles.scss';
-import CategoryItem from '../category-item/CategoryItem'
+
 
 import React from 'react'
 
