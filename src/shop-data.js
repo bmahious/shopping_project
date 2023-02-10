@@ -1,6 +1,6 @@
 const SHOP_DATA = [
   {
-    title: 'Hats',
+    title: 'Chapeau',
     items: [
       {
         id: 1,
@@ -112,7 +112,7 @@ const SHOP_DATA = [
     ],
   },
   {
-    title: 'Jackets',
+    title: 'Vestes',
     items: [
       {
         id: 18,
@@ -147,7 +147,7 @@ const SHOP_DATA = [
     ],
   },
   {
-    title: 'Womens',
+    title: 'Femme',
     items: [
       {
         id: 23,
@@ -194,7 +194,7 @@ const SHOP_DATA = [
     ],
   },
   {
-    title: 'Mens',
+    title: 'Homme',
     items: [
       {
         id: 30,

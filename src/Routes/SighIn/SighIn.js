@@ -1,16 +1,16 @@
 import React from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import SignInForm from '../../components/SignInForm/SignInForm'
-import './SignIn.styles.scss'
+import {AuthentificationContainer} from './SignIn.styles'
 
 const SighIn = () => {
 
 
   return (
-    <div className='authenticaion-container'>
+    <AuthentificationContainer>
         <SignInForm />
         <SignUpForm />  
-    </div>
+    </AuthentificationContainer>
   )
 }
 

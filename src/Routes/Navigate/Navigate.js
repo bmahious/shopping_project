@@ -6,7 +6,7 @@ import CardDropdown  from '../../components/CardDropdown/CardDropdown';
 import { UserContext } from '../../Contexts/ContextUser';
 import { CardContext } from '../../Contexts/CardContext'
 import { SignOutUser } from '../../Utils/Firebase/Firebase'
-import './navigation.styles.scss'
+import {NavigationContainer, LogoContainer, NavLinksContainer, NavLink} from  './navigation.styles.js'
 
 const Navigate = () => {
   const val = useContext(UserContext)
@@ -20,23 +20,29 @@ const Navigate = () => {
   }
   return (
     <Fragment>
-        <div className='navigation'>
-            <Link className='logo-container' to='/'>
+        <NavigationContainer>
+            <LogoContainer to='/'>
               <CrwnLogo className='logo' /> 
-            </Link>
-           <div className='nav-links-container'>
-             <Link className='nav-link' to='/shop'> SHOP </Link>
+            </LogoContainer>
+           <NavLinksContainer>
+              <NavLink to='/shop'>
+                 BOUTIQUE 
+              </NavLink>
              {
                val.currentUser ? (
-                <span className='nav-link' onClick={signOutHandler} > SIGN OUT </span>
+                <NavLink as="span" onClick={signOutHandler} >
+                   SE DECONNECTER 
+                </NavLink>
                ) : (
-                <Link className='sign-in' to='/sign-in'> SIGN IN </Link>
+                <NavLink to='/sign-in'>
+                   SE CONNECTER 
+                </NavLink>
                )
              }
             <CardIcon />
-           </div> 
+           </NavLinksContainer> 
            {isOpenCard && <CardDropdown />}
-        </div>
+        </NavigationContainer>
         <Outlet />
     </Fragment>
   )

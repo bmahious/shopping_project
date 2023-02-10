@@ -4,7 +4,7 @@ import { signInUserAuthWithEmailAndPassword,
        } from '../../Utils/Firebase/Firebase';
 import './sign-in-form.styles.scss';
 import FormInput from '../../FormInput/FormInput';
-import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import ButtonComponent, { BUTTON_TYPE_CLASSES } from '../ButtonComponent/ButtonComponent';
 
 
 const SignInForm = () => {
@@ -75,7 +75,7 @@ const SignInForm = () => {
                     onSubmit={handleSubmit}> Se connecter 
             </ButtonComponent>
             <ButtonComponent
-                    type='button' buttonType='google'  onClick={signInWithGoogle}>  Google 
+                    type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>  Google 
             </ButtonComponent>
        </div>
         

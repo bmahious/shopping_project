@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { CardContext } from '../../Contexts/CardContext';
 
 import './product-card.styles.scss';
-import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import ButtonComponent, {BUTTON_TYPE_CLASSES } from '../ButtonComponent/ButtonComponent';
 import React from 'react'
 
  const ProductCard = (product) => {
@@ -19,7 +19,7 @@ import React from 'react'
         </div>
         <ButtonComponent 
             onClick={clickAddCard}
-            buttonType='inverted'> 
+            buttonType={BUTTON_TYPE_CLASSES.inverted}> 
             Ajouter au panier 
         </ButtonComponent>
     </div>

@@ -2,7 +2,7 @@ import { useContext  } from 'react';
 import { CardContext } from '../../Contexts/CardContext';
 import { useNavigate } from 'react-router-dom';
 
-import './cart-dropdown.styles.scss';
+import {CardDropdownContainer, EmptyMessage, CardItems } from './cart-dropdown.styles';
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import CardItem from '../CardItem/CardItem';
 
@@ -18,18 +18,22 @@ const CardDropdown = () => {
         navigate('/checkout')
     }
   return (
-    <div className='cart-dropdown-container'>
-        <div className='cart-items'>
+    <CardDropdownContainer>
+        <CardItems>
             {
-                cardItems.map((item) => (
+                cardItems.length ? (cardItems.map((item) => (
                  <CardItem key={item.id} cardItem={item}/> 
-                )) 
+                )) ) : (
+                    <EmptyMessage>
+                        Votre panier est vide
+                    </EmptyMessage>
+                )
             }     
-        </div> 
+        </CardItems> 
         <ButtonComponent onClick={goToTheCheckoutPage} > 
             Voir mon panier  
         </ButtonComponent>
-    </div>
+    </CardDropdownContainer>
   )
 }
 
