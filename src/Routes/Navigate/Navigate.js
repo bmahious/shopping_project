@@ -1,5 +1,5 @@
 import React, {Fragment, useContext} from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import CardIcon from '../../components/CardIcon/CardIcon';
 import CardDropdown  from '../../components/CardDropdown/CardDropdown';
@@ -9,15 +9,13 @@ import { SignOutUser } from '../../Utils/Firebase/Firebase'
 import {NavigationContainer, LogoContainer, NavLinksContainer, NavLink} from  './navigation.styles.js'
 
 const Navigate = () => {
-  const val = useContext(UserContext)
+  const {currentUser} = useContext(UserContext)
   const {isOpenCard} = useContext(CardContext)
-
-
-
-  const signOutHandler = async () => {
-        await SignOutUser();
-        val.setCurrentUser(null)
-  }
+  //console.log(setCurrentUser)
+  // const signOutHandler = async () => {
+  //       await SignOutUser();
+  //       setCurrentUser(null)
+  // }
   return (
     <Fragment>
         <NavigationContainer>
@@ -28,17 +26,15 @@ const Navigate = () => {
               <NavLink to='/shop'>
                  BOUTIQUE 
               </NavLink>
-             {
-               val.currentUser ? (
-                <NavLink as="span" onClick={signOutHandler} >
-                   SE DECONNECTER 
+              {currentUser ? (
+                <NavLink as='span' onClick={SignOutUser}>
+                  SE DECONNECTER
                 </NavLink>
-               ) : (
+              ) : (
                 <NavLink to='/sign-in'>
-                   SE CONNECTER 
+                  SE CONNECTER
                 </NavLink>
-               )
-             }
+              )}
             <CardIcon />
            </NavLinksContainer> 
            {isOpenCard && <CardDropdown />}
