@@ -4,10 +4,10 @@ import DirectoryItem from '../../components/DirectoryItem/DirectoryItem';
 
 const Home = () => {
       return (
-        <>
+        <div>
           <DirectoryItem />
           <Outlet />
-        </>
+        </div>
       );
 }
 

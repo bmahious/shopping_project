@@ -4,7 +4,7 @@ import {onAuthStateChangedListner, createUserDocumetFromAuth} from '../Utils/Fir
 
 export const UserContext = createContext({
     setCurrentUser: () => null,
-    currentUser: null,
+    currentUser: null
   });
 
   export const USER_ACTION_TYPES = {
