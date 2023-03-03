@@ -1,5 +1,6 @@
-import { useContext } from 'react';
-import { CardContext } from '../../Contexts/CardContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCardItems } from '../../store/Card/CardSelector';
+import {addItemToCard, clearItemFromCard, removeItemFromCard} from '../../store/Card/CardAction'; 
 import {
     CheckoutItemContainer, 
     ImageContainer, 
@@ -13,11 +14,13 @@ import {
 
 
 const CheckoutItem = ({cardItem}) => {
-    const { clearItemFromCard, addItemToCard, removeItemFromCard  } = useContext(CardContext);
+    //const { clearItemFromCard, addItemToCard, removeItemFromCard  } = useContext(CardContext);
     const {name, imageUrl, price, quantity} = cardItem;
-    const clearHandler = () => clearItemFromCard(cardItem) 
-    const addHandler = () => addItemToCard(cardItem) 
-    const removeHandler = () => removeItemFromCard(cardItem) 
+    const cardItems = useSelector(selectCardItems)
+    const dispatch = useDispatch()
+    const clearHandler = () => dispatch(clearItemFromCard(cardItems, cardItem))
+    const addHandler = () => dispatch(addItemToCard(cardItems, cardItem))
+    const removeHandler = () => dispatch(removeItemFromCard(cardItems, cardItem))
    return (
     <CheckoutItemContainer>
         <ImageContainer>

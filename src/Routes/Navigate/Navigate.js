@@ -1,21 +1,22 @@
-import React, {Fragment, useContext} from 'react';
+import React, {Fragment} from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import CardIcon from '../../components/CardIcon/CardIcon';
 import CardDropdown  from '../../components/CardDropdown/CardDropdown';
 import { selectCurrentUser } from '../../store/User/UserSelector';
-import { CardContext } from '../../Contexts/CardContext';
 import { SignOutUser } from '../../Utils/Firebase/Firebase'
 import { NavigationContainer, 
          LogoContainer, 
          NavLinksContainer, 
          NavLink} 
-from  './navigation.styles.js'
+from  './navigation.styles.js';
+import { selectIsCardOpen } from '../../store/Card/CardSelector';
 
 const Navigate = () => {
   const currentUser = useSelector(selectCurrentUser)
-  const {isOpenCard} = useContext(CardContext)
+  // const {isOpenCard} = useContext(CardContext)
+  const isOpenCard = useSelector(selectIsCardOpen)
  
   return (
     <Fragment>
@@ -43,15 +44,3 @@ const Navigate = () => {
 }
 
 export default Navigate;
-
-
-
-
-
-
-
-
- // const signOutHandler = async () => {
-  //       await SignOutUser();
-  //       setCurrentUser(null)
-  // }

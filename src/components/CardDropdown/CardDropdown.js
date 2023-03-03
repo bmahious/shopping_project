@@ -1,17 +1,17 @@
-import { useContext  } from 'react';
-import { CardContext } from '../../Contexts/CardContext';
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 import {CardDropdownContainer, EmptyMessage, CardItems } from './cart-dropdown.styles';
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import CardItem from '../CardItem/CardItem';
+import { selectCardItems } from '../../store/Card/CardSelector';
 
 
 import React from 'react'
 
 const CardDropdown = () => {
 
-    const {cardItems} = useContext(CardContext);
+    //const {cardItems} = useContext(CardContext);
+    const cardItems = useSelector(selectCardItems);
     const navigate = useNavigate();
 
     const goToTheCheckoutPage = () => {

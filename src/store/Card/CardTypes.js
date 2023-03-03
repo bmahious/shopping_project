@@ -1,0 +1,7 @@
+export const CARD_ACTION_TYPES = {
+    SET_CARD_ITEM : 'card/SET_CARD_ITEM',
+    SET_CARD_COUNT: 'card/SET_CARD_COUNT',
+    SET_CARD_TOTAL: 'card/SET_CARD_TOTAL',
+    IS_OPEN_CARD :  'card/IS_OPEN_CARD'
+   }
+
