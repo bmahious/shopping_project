@@ -5,3 +5,4 @@ export const CARD_ACTION_TYPES = {
     IS_OPEN_CARD :  'card/IS_OPEN_CARD'
    }
 
+// CARD_ACTION_TYPES

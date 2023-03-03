@@ -5,6 +5,13 @@ export const setIsOpenCard = (boolean) =>
   createAction(CARD_ACTION_TYPES.IS_OPEN_CARD, boolean)
 
 
+
+//   const setIsCardOpenFunction = (bool) => {
+//     dispatch({type : actionTypesToUse.IS_OPEN_CARD, payload : bool})
+//   }
+
+
+
   const addCardItem = (cardItems, productToAdd) => {
 
     const existingCardItem = cardItems.find((cardItem) => 
@@ -44,6 +51,7 @@ export const setIsOpenCard = (boolean) =>
   const clearCardItem = (cardItems, itemToClear) => 
   cardItems.filter((cardItem) => cardItem.id !== itemToClear.id)
 
+//  
 
 
   export const addItemToCard = (cardItems, productToAdd) => {

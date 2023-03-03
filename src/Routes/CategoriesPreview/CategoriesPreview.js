@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
-import { selectCategoriesMap } from '../../store/Categories/CategorySelector';
-//import {ProductsContext } from '../../Contexts/ProductContext';
-//import ProductCard from '../../components/ProductCard/ProductCard';
+import { selectCategoriesMap, selectCategoriesIsLoading } from '../../store/Categories/CategorySelector';
+import Spinner from '../../components/Spinner/Spinner';
+
 import CategoryPreview  from '../../components/CategoryPreview/CategoryPreview';
 import { useSelector } from 'react-redux';
 //import './categories-preview.styles.scss'
@@ -9,13 +9,16 @@ import { useSelector } from 'react-redux';
 const CategoriesPreview = () => {
 
     const categoriesMap = useSelector(selectCategoriesMap);
+    const isLoading = useSelector(selectCategoriesIsLoading);
     const myArray = Object.keys(categoriesMap)
+    console.log(isLoading)
   return (
     <Fragment>
         {
+          isLoading ? <Spinner /> :
           myArray.map((title ) => {
             const products = categoriesMap[title]
-            return <CategoryPreview key={title} title={title} products={products} />
+            return  <CategoryPreview key={title} title={title} products={products} />
           }
           )  
         }
